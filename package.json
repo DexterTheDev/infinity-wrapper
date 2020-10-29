@@ -1,0 +1,48 @@
+{
+  "name": "infinity-api",
+  "version": "1.0.5",
+  "description": "Main wrapper for infinity bot list to post stats",
+  "main": "index.js",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tropical",
+    "bot",
+    "list",
+    "top.gg",
+    "node-fetch",
+    "wrapper",
+    "bot",
+    "list",
+    "discord",
+    "bots",
+    "discord",
+    "boats",
+    "infinty",
+    "bot",
+    "list",
+    "infinity",
+    "api",
+    "top",
+    "api",
+    "gblapi.js",
+    "easy-fetch",
+    "discord",
+    "bot",
+    "list",
+    "botlist",
+    "arcane-center",
+    "api",
+    "post",
+    "stats",
+    "bot",
+    "lists"
+  ],
+  "author": "Dexter#1337",
+  "license": "Apache-2.0"
+}
