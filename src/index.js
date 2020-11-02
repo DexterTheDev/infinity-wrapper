@@ -1,52 +1,21 @@
-const fetch = require("node-fetch");
+const { getStats, getUser, postStats } = require("./methods/main.js")
 
 class infinity {
-    constructor(id, token, logs = false){
+    constructor(id, token){
         this.id = id;
         this.token = token;
-        this.logs = logs;
     }
 
-    async post(servers, shards){
-        fetch(`https://infinitybotlist.com/api/bots/${this.id}`, {
-            method: "POST",
-            headers: {"authorization": this.token,"Content-Type": "application/json"},
-            body: JSON.stringify({servers, shards})
-        }).then(async res => {
-            if(this.logs) console.log(await res.json())
-        })
+    postStats(servers, shards){
+        postStats(this.id, this.token, {servers, shards: shards ? shards : 0})
     }
 
-    async bot(botID, response){
-        if(!botID) throw new Error("Missing botID")
-        fetch(`https://infinitybotlist.com/api/bots/${botID}/info`, {
-            method: "GET",
-            headers: {"Content-Type": "application/json"},
-        }).then(async res => {
-            response(await res.json())
-        })
+    getStats(response){
+        getStats(this.id, response)
     }
 
-    async vote(botID, userID, response){
-        if(!botID) throw new Error("Missing botID")
-        if(!userID) throw new Error("Missing userID")
-        fetch(`https://infinitybotlist.com/api/vote/${botID}/${userID}`, {
-            method: "GET",
-            headers: {"Content-Type": "application/json"},
-        }).then(async res => {
-            response(await res.json())
-        })
-    }
-
-    async user(userID, response){
-        if(!userID) throw new Error("Missing userID")
-        fetch(`https://infinitybotlist.com/api/users/${userID}`, {
-            method: "GET",
-            headers: {"Content-Type": "application/json"},
-        }).then(async res => {
-            response(await res.json())
-        })
+    getUser(userID, response){
+        getUser(userID, response)
     }
 }
-
-module.exports = infinity
+module.exports = infinity;
