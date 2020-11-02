@@ -49,7 +49,7 @@ client.on("message", message => { // message listener
         message.reply(`Pong ${client.ws.ping}ms`)
     }
      if(message.content == (prefix + "stats")){
-        stats.bot("1234567890", (data) => { // ID should be string
+        stats.bot((data) => { // ID should be string
         let embed = new MessageEmbed()
         .setTitle(data.bot_name)
         .setDescription(`
@@ -67,19 +67,6 @@ client.on("message", message => { // message listener
         Staff: ${data.staff}
         `)
         .setFooter(`Bot created by ${data.owner}`)
-        })
-        message.channel.send(embed)
-    }
-    if(message.content == (prefix + "is_voted")){
-        stats.vote("botID", "userID", (data) => { // ID should be string
-        let embed = new MessageEmbed()
-        .setTitle("Is Voted")
-        .setDescription(`
-        Voted?: ${data.voted},
-        Last Vote: ${data.last_vote},
-        Raw Date: ${data.raw_date},
-        Time: ${data.vote_time},
-        `)
         })
         message.channel.send(embed)
     }
